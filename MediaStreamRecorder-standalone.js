@@ -443,11 +443,7 @@ function StereoAudioRecorder(mediaStream, root) {
     var volume = ObjectStore.VolumeGainNode;
 
     // creates an audio node from the microphone incoming stream
-    if (!ObjectStore.AudioInput)
-        ObjectStore.AudioInput = context.createMediaStreamSource(mediaStream);
-
-    // creates an audio node from the microphone incoming stream
-    var audioInput = ObjectStore.AudioInput;
+    var audioInput = context.createMediaStreamSource(mediaStream);
 
     // connect the stream to the gain node
     audioInput.connect(volume);
