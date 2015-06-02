@@ -443,11 +443,7 @@ function StereoAudioRecorder(mediaStream, root) {
     var volume = ObjectStore.VolumeGainNode;
 
     // creates an audio node from the microphone incoming stream
-    if (!ObjectStore.AudioInput)
-        ObjectStore.AudioInput = context.createMediaStreamSource(mediaStream);
-
-    // creates an audio node from the microphone incoming stream
-    var audioInput = ObjectStore.AudioInput;
+    var audioInput = context.createMediaStreamSource(mediaStream);
 
     // connect the stream to the gain node
     audioInput.connect(volume);
@@ -455,7 +451,7 @@ function StereoAudioRecorder(mediaStream, root) {
     /* From the spec: This value controls how frequently the audioprocess event is
     dispatched and how many sample-frames need to be processed each call.
     Lower values for buffer size will result in a lower (better) latency.
-    Higher values will be necessary to avoid audio breakup and glitches 
+    Higher values will be necessary to avoid audio breakup and glitches
     Legal values are 256, 512, 1024, 2048, 4096, 8192, and 16384.*/
     var bufferSize = root.bufferSize || 2048;
     if (root.bufferSize == 0) bufferSize = 0;
@@ -803,14 +799,14 @@ function WhammyRecorder(mediaStream) {
 }
 
 
-// Muaz Khan     - https://github.com/muaz-khan 
+// Muaz Khan     - https://github.com/muaz-khan
 // neizerth      - https://github.com/neizerth
 // MIT License   - https://www.webrtc-experiment.com/licence/
 // Documentation - https://github.com/streamproc/MediaStreamRecorder
 
 // Note:
 // ==========================================================
-// whammy.js is an "external library" 
+// whammy.js is an "external library"
 // and has its own copyrights. Taken from "Whammy" project.
 
 
@@ -1157,7 +1153,7 @@ var Whammy = (function() {
     };
 })();
 
-// Muaz Khan     - https://github.com/muaz-khan 
+// Muaz Khan     - https://github.com/muaz-khan
 // neizerth      - https://github.com/neizerth
 // MIT License   - https://www.webrtc-experiment.com/licence/
 // Documentation - https://github.com/streamproc/MediaStreamRecorder
