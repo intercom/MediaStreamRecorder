@@ -1341,11 +1341,7 @@ function MultiStreamRecorder(mediaStream) {
         };
 
         if (!isFirefox) {
-            // to make sure both audio/video are synced.
-            videoRecorder.onStartedDrawingNonBlankFrames = function() {
-                videoRecorder.clearOldRecordedFrames();
-                audioRecorder.start(timeSlice);
-            };
+            audioRecorder.start(timeSlice);
             videoRecorder.start(timeSlice);
         } else {
             videoRecorder.start(timeSlice);
